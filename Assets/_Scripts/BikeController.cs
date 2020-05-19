@@ -19,6 +19,8 @@ public class BikeController : MonoBehaviour
     [SerializeField]
     float tilt = 1f;
     public float changeDirectionFactor = 5f;
+    [HideInInspector]
+    public bool leftButtonPressed = false, rightButtonPressed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,22 @@ public class BikeController : MonoBehaviour
 
     private void Update()
     {
-        xInpt = Input.GetAxis("Horizontal");
+        if (leftButtonPressed)
+        {
+            xInpt = -1f;
+        }
+        else if (rightButtonPressed)
+        {
+            xInpt = 1f;
+        }
+        else
+        {
+            xInpt = 0f;
+        }
+        if(xInpt == 0)
+        {
+            xInpt = Input.GetAxis("Horizontal");
+        }
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -42,7 +59,7 @@ public class BikeController : MonoBehaviour
         // X speed
         if (xInpt > 0 && speedX < 0)
         {
-            Debug.Log("CHanging dir");
+            //Debug.Log("CHanging dir");
             speedX += forceX * Time.deltaTime * changeDirectionFactor;
         }
         else if (xInpt > 0 && speedX < maxSpeedX)
@@ -51,7 +68,7 @@ public class BikeController : MonoBehaviour
         }
         else if (xInpt < 0 && speedX > 0)
         {
-            Debug.Log("CHanging dir");
+            //Debug.Log("CHanging dir");
             speedX -= forceX * Time.deltaTime * changeDirectionFactor;
         }
         else if(xInpt < 0 && speedX > -maxSpeedX)
@@ -71,11 +88,8 @@ public class BikeController : MonoBehaviour
         rotation = rotationZ = Mathf.Clamp(rotation, -maxRotation, maxRotation);
         rb.rotation = Quaternion.Euler(0f, 0f, rotation);
 
-
-
-
-
-
+        
+        
         //Vector3 forceDir = Vector3.zero;
         //speedZ = rb.velocity.z;
         //rotationZ = rb.rotation.z;
