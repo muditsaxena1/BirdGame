@@ -11,7 +11,7 @@ public class HurtTrigger : MonoBehaviour
 
     private void Start()
     {
-        //hurtOverlay = GameObject.Find("HurtOverlay");
+        hurtOverlay = FindObjectOfType<SceneManager>().GetHurtOverlay();
         if (!hurtOverlay)
         {
             Debug.Log("Nhi mila hurtOverlay");
@@ -28,7 +28,7 @@ public class HurtTrigger : MonoBehaviour
         }
         else
         {
-            Debug.Log("Who the fuck is touching me nigga");
+            Debug.Log("Who the fuck is touching me nigga" + other.name);
         }
     }
 

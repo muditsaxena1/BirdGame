@@ -25,7 +25,7 @@ public class LandscapeRespawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider target)
     {
-        //Debug.Log("Collided with " + target.name);
+        Debug.Log("Collided with " + target.name);
         if(target.tag == "Terrain")
         {
             Vector3 temp = target.transform.position;

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Terrain
   - Bike
+  - HurtOverlay
+  - Road
   layers:
   - Default
   - TransparentFX
