@@ -358,7 +358,7 @@ MonoBehaviour:
   sharedProfile: {fileID: 11400000, guid: 3d3f657eb69d5dc4987411c2387b446d, type: 2}
   isGlobal: 1
   blendDistance: 0
-  weight: 0.57
+  weight: 1
   priority: 0
 --- !u!4 &109559497
 Transform:
@@ -755,7 +755,7 @@ PrefabInstance:
     - target: {fileID: 165814130170455129, guid: 7b15365713c01e843819f3d10f5911d4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b15365713c01e843819f3d10f5911d4, type: 3}
@@ -3414,6 +3414,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2345371363108286202, guid: 53320fe20a9ec2e469194b17d0a3788e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2345371363655461520, guid: 53320fe20a9ec2e469194b17d0a3788e,
         type: 3}
       propertyPath: bikeController
