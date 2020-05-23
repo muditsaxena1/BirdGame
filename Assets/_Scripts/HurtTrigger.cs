@@ -11,7 +11,7 @@ public class HurtTrigger : MonoBehaviour
 
     private void Start()
     {
-        hurtOverlay = FindObjectOfType<SceneManager>().GetHurtOverlay();
+        hurtOverlay = FindObjectOfType<CanvasManager>().GetHurtOverlay();
         if (!hurtOverlay)
         {
             Debug.Log("Nhi mila hurtOverlay");

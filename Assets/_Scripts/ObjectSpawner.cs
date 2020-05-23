@@ -6,7 +6,7 @@ public class ObjectSpawner : MonoBehaviour
 {
     private Transform leftBuildings, rightBuildings;
     public GameObject road;
-    private float nextRoadPos = 120f;
+    private float nextRoadPos = 12000f;
     public GameObject[] houses;
     public int[] houseLength;
 

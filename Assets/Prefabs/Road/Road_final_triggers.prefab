@@ -1510,7 +1510,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 165814130170455128}
-  - component: {fileID: 165814130170455134}
   m_Layer: 0
   m_Name: Road_final_triggers
   m_TagString: Road
@@ -1536,19 +1535,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &165814130170455134
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 165814130170455129}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 23.700012, y: 2.235993, z: 117}
-  m_Center: {x: -32.74, y: 89.8, z: -144.1}
 --- !u!1 &165814130186284947
 GameObject:
   m_ObjectHideFlags: 0
