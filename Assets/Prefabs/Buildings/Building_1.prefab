@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4226970480722428812
 Transform:
@@ -43,9 +43,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4226970480722428812}
     m_Modifications:
+    - target: {fileID: 100000, guid: 928e9a9725d038943a9044e60f8229f7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 928e9a9725d038943a9044e60f8229f7, type: 3}
       propertyPath: m_Name
       value: modularBuildings_029
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 928e9a9725d038943a9044e60f8229f7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 928e9a9725d038943a9044e60f8229f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -106,9 +114,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4226970480722428812}
     m_Modifications:
+    - target: {fileID: 100000, guid: e82033d334fc0e54d87f2678db79a7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: e82033d334fc0e54d87f2678db79a7a5, type: 3}
       propertyPath: m_Name
       value: modularBuildings_010
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: e82033d334fc0e54d87f2678db79a7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e82033d334fc0e54d87f2678db79a7a5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -181,9 +197,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4226970480722428812}
     m_Modifications:
+    - target: {fileID: 100000, guid: fee8ff90287f4cb4ba7c7f079bda36d2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: fee8ff90287f4cb4ba7c7f079bda36d2, type: 3}
       propertyPath: m_Name
       value: modularBuildings_026
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: fee8ff90287f4cb4ba7c7f079bda36d2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: fee8ff90287f4cb4ba7c7f079bda36d2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -244,9 +268,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4226970480722428812}
     m_Modifications:
+    - target: {fileID: 100000, guid: 2d32e6b1455a2f242b44eb7c5fef1a2e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 2d32e6b1455a2f242b44eb7c5fef1a2e, type: 3}
       propertyPath: m_Name
       value: modularBuildings_079
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 2d32e6b1455a2f242b44eb7c5fef1a2e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 2d32e6b1455a2f242b44eb7c5fef1a2e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -307,9 +339,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4226970480722428812}
     m_Modifications:
+    - target: {fileID: 100000, guid: e82033d334fc0e54d87f2678db79a7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: e82033d334fc0e54d87f2678db79a7a5, type: 3}
       propertyPath: m_Name
       value: modularBuildings_010 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: e82033d334fc0e54d87f2678db79a7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e82033d334fc0e54d87f2678db79a7a5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -382,9 +422,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4226970480722428812}
     m_Modifications:
+    - target: {fileID: 100000, guid: 606fd6d98ad046e4a9dee4a0060396b1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 606fd6d98ad046e4a9dee4a0060396b1, type: 3}
       propertyPath: m_Name
       value: modularBuildings_073
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 606fd6d98ad046e4a9dee4a0060396b1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 606fd6d98ad046e4a9dee4a0060396b1, type: 3}
       propertyPath: m_LocalPosition.x
