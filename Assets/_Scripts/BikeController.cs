@@ -60,20 +60,20 @@ public class BikeController : MonoBehaviour
         if (xInpt > 0 && speedX < 0)
         {
             //Debug.Log("CHanging dir");
-            speedX += forceX * Time.deltaTime * changeDirectionFactor;
+            speedX += forceX * speedZ * Time.deltaTime * changeDirectionFactor;
         }
         else if (xInpt > 0 && speedX < maxSpeedX)
         {
-            speedX += forceX * Time.deltaTime;
+            speedX += forceX * speedZ * Time.deltaTime;
         }
         else if (xInpt < 0 && speedX > 0)
         {
             //Debug.Log("CHanging dir");
-            speedX -= forceX * Time.deltaTime * changeDirectionFactor;
+            speedX -= forceX * speedZ * Time.deltaTime * changeDirectionFactor;
         }
         else if(xInpt < 0 && speedX > -maxSpeedX)
         {
-            speedX -= forceX * Time.deltaTime;
+            speedX -= forceX * speedZ * Time.deltaTime;
         }
         else if(xInpt == 0)
         {

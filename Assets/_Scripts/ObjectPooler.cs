@@ -6,12 +6,12 @@ using MarchingBytes;
 public class ObjectPooler : MonoBehaviour
 {
     EasyObjectPool easyObjectPool;
-    public Transform leftBuildings, rightBuildings, roads, streetlights;
-    private float nextRoadPos = 120f, nextStreetlightPos = 40f;
+    public Transform leftBuildings, rightBuildings, roads, streetlights, dustbins;
+    private float nextRoadPos = 120f, nextStreetlightPos = 40f, nextDustbinPos = 60f;
     private float nextRightHousePos = 40f, nextLeftHousePos = 20f;
     public int[] houseLength;
 
-    Queue<GameObject> roadQ, leftBuildingsQ, rightBuildingsQ, streetlightsQ;
+    Queue<GameObject> roadQ, leftBuildingsQ, rightBuildingsQ, streetlightsQ, dustbinQ;
 
     private void Start()
     {
@@ -19,6 +19,7 @@ public class ObjectPooler : MonoBehaviour
         leftBuildingsQ = new Queue<GameObject>();
         rightBuildingsQ = new Queue<GameObject>();
         streetlightsQ = new Queue<GameObject>();
+        dustbinQ = new Queue<GameObject>();
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -26,6 +27,13 @@ public class ObjectPooler : MonoBehaviour
         if (!easyObjectPool)
         {
             easyObjectPool = EasyObjectPool.instance;
+        }
+        if(dustbinQ.Count > 0)
+        {
+            if(transform.position.z > dustbinQ.Peek().transform.position.z)
+            {
+                easyObjectPool.ReturnObjectToPool(dustbinQ.Dequeue());
+            }
         }
         if(streetlightsQ.Count > 0)
         {
@@ -51,7 +59,7 @@ public class ObjectPooler : MonoBehaviour
         }
         if (rightBuildingsQ.Count > 0)
         {
-            if (transform.position.z - 60f > rightBuildingsQ.Peek().transform.position.z)
+            if (transform.position.z - 70f > rightBuildingsQ.Peek().transform.position.z)
             {
                 easyObjectPool.ReturnObjectToPool(rightBuildingsQ.Dequeue());
             }
@@ -73,7 +81,7 @@ public class ObjectPooler : MonoBehaviour
             leftBuildingsQ.Enqueue(house);
             //print(index);
         }
-        if (transform.position.z + 180f > nextRightHousePos)
+        if (transform.position.z + 170f > nextRightHousePos)
         {
             int index = Random.Range(0, 7);
             Vector3 pos = new Vector3(-10.5f, 90.84171f, nextRightHousePos);
@@ -96,6 +104,20 @@ public class ObjectPooler : MonoBehaviour
             streetlightsQ.Enqueue(slight);
 
             nextStreetlightPos += 40f;
+        }
+        if(transform.position.z + 180f > nextDustbinPos)
+        {
+            Vector3 pos = new Vector3(-17.65125f, 91.45171f, nextDustbinPos);
+            GameObject bin = easyObjectPool.GetObjectFromPool("Dustbin", pos, Quaternion.identity);
+            bin.transform.parent = dustbins;
+            dustbinQ.Enqueue(bin);
+
+            pos = new Vector3(-47.75125f, 91.45171f, nextDustbinPos);
+            bin = easyObjectPool.GetObjectFromPool("Dustbin", pos, Quaternion.identity);
+            bin.transform.parent = dustbins;
+            dustbinQ.Enqueue(bin);
+
+            nextDustbinPos += 80f;
         }
     }
 }
