@@ -6,12 +6,12 @@ using MarchingBytes;
 public class ObjectPooler : MonoBehaviour
 {
     EasyObjectPool easyObjectPool;
-    public Transform leftBuildings, rightBuildings, roads, streetlights, dustbins;
-    private float nextRoadPos = 120f, nextStreetlightPos = 40f, nextDustbinPos = 60f;
+    public Transform leftBuildings, rightBuildings, roads, streetlights, dustbins, benches;
+    private float nextRoadPos = 120f, nextStreetlightPos = 40f, nextDustbinPos = 60f, nextBenchPos = 100f;
     private float nextRightHousePos = 40f, nextLeftHousePos = 20f;
     public int[] houseLength;
 
-    Queue<GameObject> roadQ, leftBuildingsQ, rightBuildingsQ, streetlightsQ, dustbinQ;
+    Queue<GameObject> roadQ, leftBuildingsQ, rightBuildingsQ, streetlightsQ, dustbinQ, benchQ;
 
     private void Start()
     {
@@ -20,6 +20,7 @@ public class ObjectPooler : MonoBehaviour
         rightBuildingsQ = new Queue<GameObject>();
         streetlightsQ = new Queue<GameObject>();
         dustbinQ = new Queue<GameObject>();
+        benchQ = new Queue<GameObject>();
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -27,6 +28,13 @@ public class ObjectPooler : MonoBehaviour
         if (!easyObjectPool)
         {
             easyObjectPool = EasyObjectPool.instance;
+        }
+        if(benchQ.Count > 0)
+        {
+            if(transform.position.z > benchQ.Peek().transform.position.z)
+            {
+                easyObjectPool.ReturnObjectToPool(benchQ.Dequeue());
+            }
         }
         if(dustbinQ.Count > 0)
         {
@@ -118,6 +126,20 @@ public class ObjectPooler : MonoBehaviour
             dustbinQ.Enqueue(bin);
 
             nextDustbinPos += 80f;
+        }
+        if (transform.position.z + 180f > nextBenchPos)
+        {
+            Vector3 pos = new Vector3(-52f, 91.3f, nextBenchPos);
+            GameObject bench = easyObjectPool.GetObjectFromPool("Bench", pos, Quaternion.Euler(0f,90f,0f));
+            bench.transform.parent = benches;
+            dustbinQ.Enqueue(bench);
+
+            pos = new Vector3(-14f, 91.3f, nextBenchPos);
+            bench = easyObjectPool.GetObjectFromPool("Bench", pos, Quaternion.Euler(0f, 270f, 0f));
+            bench.transform.parent = benches;
+            benchQ.Enqueue(bench);
+
+            nextBenchPos += 80f;
         }
     }
 }
