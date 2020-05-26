@@ -1,9 +1,49 @@
 fileFormatVersion: 2
-guid: 67ba59329d21f2d40ab9eb5b40ab46ad
+guid: fb3650806a88da94ab902cd31a49b253
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carmaterial_blue
+    second: {fileID: 2100000, guid: 42f0b1d6e3bfb9341b25a52f9b04ee6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lights
+    second: {fileID: 2100000, guid: bbb54599b9081c14d9882459911408f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lights.orange
+    second: {fileID: 2100000, guid: a1e5957b48f2ed446ad031832f631680, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lights.red
+    second: {fileID: 2100000, guid: 553dab2b3e0424b4ebe5e5886624d5ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal
+    second: {fileID: 2100000, guid: 24f2535c65c0df047887c61a372215be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal.black
+    second: {fileID: 2100000, guid: 65d531d435b8627419f80d560900b30b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tires
+    second: {fileID: 2100000, guid: dac6ca5cf99cd094097adc35669f33e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: windows
+    second: {fileID: 2100000, guid: 914bd55fc26713645a1b16253c0ab275, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
