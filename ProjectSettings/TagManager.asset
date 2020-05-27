@@ -9,6 +9,8 @@ TagManager:
   - HurtOverlay
   - Road
   - Building
+  - Slow_Cars
+  - Fast_Cars
   layers:
   - Default
   - TransparentFX
