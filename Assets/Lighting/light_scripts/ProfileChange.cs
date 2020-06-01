@@ -8,6 +8,8 @@ public class ProfileChange : MonoBehaviour
     public PostProcessProfile city;
     public PostProcessProfile ocean;
     private PostProcessVolume _ppv;
+    public Material outsideSkybox;
+    public Material underwaterSkybox;
     
 
     // Start is called before the first frame update
@@ -24,6 +26,7 @@ public class ProfileChange : MonoBehaviour
             {
             Debug.Log("Entered Collider");
                 _ppv.profile = ocean;
+            RenderSettings.skybox = underwaterSkybox;
             }
         }
 
@@ -33,6 +36,7 @@ public class ProfileChange : MonoBehaviour
             {
                 Debug.Log("Exited Collider");
             _ppv.profile = city;
+            RenderSettings.skybox = outsideSkybox;
             }
         }
     
