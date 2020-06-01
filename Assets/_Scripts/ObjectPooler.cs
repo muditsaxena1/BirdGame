@@ -31,21 +31,21 @@ public class ObjectPooler : MonoBehaviour
         }
         if(benchQ.Count > 0)
         {
-            if(transform.position.z > benchQ.Peek().transform.position.z)
+            if(transform.position.z - 5f > benchQ.Peek().transform.position.z)
             {
                 easyObjectPool.ReturnObjectToPool(benchQ.Dequeue());
             }
         }
         if(dustbinQ.Count > 0)
         {
-            if(transform.position.z > dustbinQ.Peek().transform.position.z)
+            if(transform.position.z - 10f > dustbinQ.Peek().transform.position.z)
             {
                 easyObjectPool.ReturnObjectToPool(dustbinQ.Dequeue());
             }
         }
         if(streetlightsQ.Count > 0)
         {
-            if(transform.position.z > streetlightsQ.Peek().transform.position.z)
+            if(transform.position.z - 10f > streetlightsQ.Peek().transform.position.z)
             {
                 easyObjectPool.ReturnObjectToPool(streetlightsQ.Dequeue());
             }
@@ -83,7 +83,7 @@ public class ObjectPooler : MonoBehaviour
         {
             int index = Random.Range(0, 7);
             nextLeftHousePos += houseLength[index];
-            Vector3 pos = new Vector3(-54f, 90.84171f, nextLeftHousePos);
+            Vector3 pos = new Vector3(-45f, 90.84171f, nextLeftHousePos);
             GameObject house = easyObjectPool.GetObjectFromPool("Building_" + (index + 1), pos, Quaternion.identity);
             house.transform.parent = leftBuildings;
             leftBuildingsQ.Enqueue(house);
@@ -101,12 +101,12 @@ public class ObjectPooler : MonoBehaviour
         }
         if(transform.position.z + 180f > nextStreetlightPos)
         {
-            Vector3 pos = new Vector3(-19f,91.5f, nextStreetlightPos);
+            Vector3 pos = new Vector3(-18.6f,91.5f, nextStreetlightPos);
             GameObject slight = easyObjectPool.GetObjectFromPool("Streetlight", pos, Quaternion.identity);
             slight.transform.parent = streetlights;
             streetlightsQ.Enqueue(slight);
 
-            pos = new Vector3(-46.8f, 91.5f, nextStreetlightPos);
+            pos = new Vector3(-38.3f, 91.5f, nextStreetlightPos);
             slight = easyObjectPool.GetObjectFromPool("Streetlight", pos, Quaternion.Euler(0f, 180f, 0f));
             slight.transform.parent = streetlights;
             streetlightsQ.Enqueue(slight);
@@ -120,7 +120,7 @@ public class ObjectPooler : MonoBehaviour
             bin.transform.parent = dustbins;
             dustbinQ.Enqueue(bin);
 
-            pos = new Vector3(-47.75125f, 91.45171f, nextDustbinPos);
+            pos = new Vector3(-39.3f, 91.45171f, nextDustbinPos);
             bin = easyObjectPool.GetObjectFromPool("Dustbin", pos, Quaternion.identity);
             bin.transform.parent = dustbins;
             dustbinQ.Enqueue(bin);
@@ -129,7 +129,7 @@ public class ObjectPooler : MonoBehaviour
         }
         if (transform.position.z + 180f > nextBenchPos)
         {
-            Vector3 pos = new Vector3(-52f, 91.3f, nextBenchPos);
+            Vector3 pos = new Vector3(-42.8f, 91.3f, nextBenchPos);
             GameObject bench = easyObjectPool.GetObjectFromPool("Bench", pos, Quaternion.Euler(0f,90f,0f));
             bench.transform.parent = benches;
             dustbinQ.Enqueue(bench);
