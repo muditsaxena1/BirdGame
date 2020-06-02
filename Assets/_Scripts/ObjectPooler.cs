@@ -83,7 +83,7 @@ public class ObjectPooler : MonoBehaviour
         {
             int index = Random.Range(0, 7);
             nextLeftHousePos += houseLength[index];
-            Vector3 pos = new Vector3(-54f, 90.84171f, nextLeftHousePos);
+            Vector3 pos = new Vector3(-55.5f, 90.84171f, nextLeftHousePos);
             GameObject house = easyObjectPool.GetObjectFromPool("Building_" + (index + 1), pos, Quaternion.identity);
             house.transform.parent = leftBuildings;
             leftBuildingsQ.Enqueue(house);
@@ -92,7 +92,7 @@ public class ObjectPooler : MonoBehaviour
         if (transform.position.z + 170f > nextRightHousePos)
         {
             int index = Random.Range(0, 7);
-            Vector3 pos = new Vector3(-12f, 90.84171f, nextRightHousePos);
+            Vector3 pos = new Vector3(-10.5f, 90.84171f, nextRightHousePos);
             nextRightHousePos += houseLength[index];
             GameObject house = easyObjectPool.GetObjectFromPool("Building_" + (index + 1), pos, Quaternion.Euler(0f, 180f, 0f));
             house.transform.parent = leftBuildings;

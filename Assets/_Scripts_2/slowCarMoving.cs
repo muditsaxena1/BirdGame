@@ -6,28 +6,20 @@ public class slowCarMoving : MonoBehaviour
 {
     [SerializeField]
     public float speed;
-    public GameObject[] fastCars;
-    Rigidbody[] fastcar;
-
+    public GameObject[] slowCars;
     // Start is called before the first frame update
     void Start()
     {
-        fastCars = GameObject.FindGameObjectsWithTag("Slow_Cars");
-        fastcar = new Rigidbody[fastCars.Length];
-        for (int i = 0; i < fastCars.Length; ++i)
-        {
-            GameObject fastCar = fastCars[i];
-            fastcar[i] = fastCar.GetComponent<Rigidbody>();
-        }
+        slowCars = GameObject.FindGameObjectsWithTag("Slow_Cars");
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach (Rigidbody car in fastcar)
+        foreach (GameObject slowCar in slowCars)
         {
-            Vector3 newPosition = car.transform.position + car.transform.forward * Time.deltaTime * speed;
-            car.MovePosition(newPosition);
+            slowCar.transform.position += slowCar.transform.forward * Time.deltaTime *
+                speed;
         }
     }
 }
