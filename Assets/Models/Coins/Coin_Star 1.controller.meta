@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: c5d9a8fb1ef670e45ba21ce5b739e67c
+=======
+<<<<<<< HEAD:Assets/Barrier Pack/Prefabs/Cone lighitng animations/cone lighting.anim.meta
+guid: 9abf86e3ae866d545adb59d6d49e1a3f
+=======
+guid: c5d9a8fb1ef670e45ba21ce5b739e67c
+>>>>>>> mudit_branch1:Assets/Models/Coins/Coin_Star 1.controller.meta
+>>>>>>> mudit_branch1
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
