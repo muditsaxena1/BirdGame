@@ -537,11 +537,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 269767299148935139}
-<<<<<<< HEAD
   - {fileID: 5328751579332858725}
   - {fileID: 5328751579435913011}
-=======
->>>>>>> mudit_branch1
   - {fileID: 5328751579034965245}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -724,11 +721,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5099432826131545266}
-<<<<<<< HEAD
   m_RootOrder: 3
-=======
-  m_RootOrder: 1
->>>>>>> mudit_branch1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5328751579034965218
 MonoBehaviour:
@@ -749,7 +742,6 @@ MonoBehaviour:
   dustbins: {fileID: 0}
   benches: {fileID: 0}
   houseLength: 0a0000000a0000000a0000000a0000001e0000000a0000000a000000
-<<<<<<< HEAD
 --- !u!1 &5328751579332858724
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,8 +852,6 @@ MonoBehaviour:
   - {fileID: 7622370816946800864, guid: d1af66417fe020c4794d5a8c662bfdd7, type: 3}
   - {fileID: 5983870406512953293, guid: e72e8dbdcd0eb624d98bee5849059bf7, type: 3}
   houseLength: 0a0000000a0000000a0000000a0000001e0000000a0000000a000000
-=======
->>>>>>> mudit_branch1
 --- !u!1 &5328751580273589264
 GameObject:
   m_ObjectHideFlags: 0
