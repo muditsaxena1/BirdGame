@@ -11,6 +11,7 @@ TagManager:
   - Building
   - Slow_Cars
   - Fast_Cars
+  - Coin
   layers:
   - Default
   - TransparentFX
