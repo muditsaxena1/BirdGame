@@ -5,6 +5,7 @@ using MarchingBytes;
 
 public class CarPooler : MonoBehaviour
 {
+    public Transform carMover;
     float spawnAtLeastBefore = 200f;
     int level = 0, maxLevel = 4;
     float levelDistance = 200f, nextCarPos = 100f;
@@ -36,7 +37,8 @@ public class CarPooler : MonoBehaviour
         {
             pos += Vector3.forward * 20f;
         }
-        easyObjectPool.GetObjectFromPool("car_" + carIndex, pos, Quaternion.identity);
+        GameObject car = easyObjectPool.GetObjectFromPool("car_" + carIndex, pos, Quaternion.identity);
+        car.transform.parent = carMover;
     }
 
     private void FixedUpdate()
@@ -52,7 +54,7 @@ public class CarPooler : MonoBehaviour
                 //spawn 1 car, pick lane & car
                 int lane = Random.Range(0, 3);
                 SpawnCarAtLane(lane, startingZPos + nextCarPos);
-                nextCarPos += 100f;
+                nextCarPos += 200f;
             }
             else if(currSpawnType > spawnType[level,0] && currSpawnType <= spawnType[level,0] + spawnType[level, 1])
             {
