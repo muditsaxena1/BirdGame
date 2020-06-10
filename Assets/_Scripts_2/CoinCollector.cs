@@ -19,9 +19,11 @@ public class CoinCollector : MonoBehaviour
         {
             if (other.tag == "Bike")
             {
+            
             PlayerManager.noc += 1;
             Debug.Log("Coins:"+PlayerManager.noc);
                 Destroy(gameObject);
+            
               
         }
         }
