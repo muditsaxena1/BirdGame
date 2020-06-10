@@ -1749,7 +1749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cd3813fd312a2c47870dc25b78e90dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carMover: {fileID: 526871092}
+  carMoverTransform: {fileID: 526871092}
+  carMover: {fileID: 526871093}
 --- !u!4 &324769349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4493928384170443251, guid: e72e8dbdcd0eb624d98bee5849059bf7,
@@ -3130,6 +3131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  playerT: {fileID: 1096437906400730816}
 --- !u!54 &526871094
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5049,7 +5051,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: coi
+  m_Text: coins
 --- !u!222 &838365197
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9598,22 +9600,22 @@ MonoBehaviour:
   - poolName: car_0
     prefab: {fileID: 6141603684878462313, guid: 14b2d77470a4565499aa8767b5eddd28,
       type: 3}
-    poolSize: 2
+    poolSize: 4
     fixedSize: 0
   - poolName: car_1
     prefab: {fileID: 2703138210311097808, guid: b7021ae0cf0eb3d4e8c96e77bb8200b3,
       type: 3}
-    poolSize: 2
+    poolSize: 4
     fixedSize: 0
   - poolName: car_2
     prefab: {fileID: 8487035355520914639, guid: 363d4978c272ec14cb2b8a6ce3440431,
       type: 3}
-    poolSize: 2
+    poolSize: 4
     fixedSize: 0
   - poolName: car_3
     prefab: {fileID: 8534928435449619197, guid: 0bd10df2bdfc6cf4ab0c9aae33bbc2f5,
       type: 3}
-    poolSize: 2
+    poolSize: 4
     fixedSize: 0
 --- !u!4 &1724119960
 Transform:

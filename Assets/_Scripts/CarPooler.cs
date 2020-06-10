@@ -5,7 +5,8 @@ using MarchingBytes;
 
 public class CarPooler : MonoBehaviour
 {
-    public Transform carMover;
+    public Transform carMoverTransform;
+    public CarMover carMover;
     float spawnAtLeastBefore = 200f;
     int level = 0, maxLevel = 4;
     float levelDistance = 200f, nextCarPos = 100f;
@@ -15,6 +16,7 @@ public class CarPooler : MonoBehaviour
     // <= first == spawn 1
     // > first && <= first + second == spawn 2
     // > first + second == spawn 3
+    int[] nextCarPosArr = new int[] {200, 200, 150, 150, 100};
     int[,] spawnType = new int[,] { {100, 0},   // spawn 1
                                     {75, 25},   // 75% chance of spawning 1, 25% spawn 2
                                     {50, 25},   // 50% spawn 1, 25% spawn 2, 25% spawn 3 
@@ -38,7 +40,8 @@ public class CarPooler : MonoBehaviour
             pos += Vector3.forward * 20f;
         }
         GameObject car = easyObjectPool.GetObjectFromPool("car_" + carIndex, pos, Quaternion.identity);
-        car.transform.parent = carMover;
+        car.transform.parent = carMoverTransform;
+        carMover.AddCarToQueue(car);
     }
 
     private void FixedUpdate()
@@ -54,7 +57,7 @@ public class CarPooler : MonoBehaviour
                 //spawn 1 car, pick lane & car
                 int lane = Random.Range(0, 3);
                 SpawnCarAtLane(lane, startingZPos + nextCarPos);
-                nextCarPos += 200f;
+                nextCarPos += nextCarPosArr[level];
             }
             else if(currSpawnType > spawnType[level,0] && currSpawnType <= spawnType[level,0] + spawnType[level, 1])
             {
@@ -62,7 +65,7 @@ public class CarPooler : MonoBehaviour
                 int lane = Random.Range(0,3);
                 SpawnCarAtLane((lane + 1) % 3, startingZPos + nextCarPos);
                 SpawnCarAtLane((lane + 2) % 3, startingZPos + nextCarPos);
-                nextCarPos += 100f;
+                nextCarPos += nextCarPosArr[level];
             }
             else
             {
@@ -71,7 +74,7 @@ public class CarPooler : MonoBehaviour
                 SpawnCarAtLane(lane, startingZPos + nextCarPos, true);
                 SpawnCarAtLane((lane + 1) % 3, startingZPos + nextCarPos);
                 SpawnCarAtLane((lane + 2) % 3, startingZPos + nextCarPos);
-                nextCarPos += 100f;
+                nextCarPos += nextCarPosArr[level];
             }
             //easyObjectPool.GetObjectFromPool("car_" + index,)
         }
