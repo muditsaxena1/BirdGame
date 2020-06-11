@@ -5,10 +5,11 @@ using UnityEngine;
 public class CoinEffect : MonoBehaviour
 {
     public GameObject effect;
+    private AudioSource coinSource;
     // Start is called before the first frame update
     void Start()
     {
-        
+        coinSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,6 +22,7 @@ public class CoinEffect : MonoBehaviour
     {
         if (other.tag == "Bike")
         {
+            coinSource.Play();
             Instantiate(effect,transform.position,transform.rotation);
         }
     }
