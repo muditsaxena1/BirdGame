@@ -114,11 +114,15 @@ namespace MarchingBytes {
 
 		//mapping of pool name vs list
 		private Dictionary<string, Pool> poolDictionary  = new Dictionary<string, Pool>();
-		
-		// Use this for initialization
-		void Start () {
+
+        private void Awake()
+        {
+            instance = this;
+        }
+        // Use this for initialization
+        void Start () {
 			//set instance
-			instance = this;
+			//instance = this;
 			//check for duplicate names
 			CheckForDuplicatePoolNames();
 			//create pools
@@ -146,7 +150,7 @@ namespace MarchingBytes {
 				                     currentPoolInfo.poolSize, currentPoolInfo.fixedSize);
 
 				
-				Debug.Log("Creating pool: " + currentPoolInfo.poolName);
+				//Debug.Log("Creating pool: " + currentPoolInfo.poolName);
 				//add to mapping dict
 				poolDictionary[currentPoolInfo.poolName] = pool;
 			}
