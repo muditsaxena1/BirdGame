@@ -44,6 +44,22 @@ public class CarCoinPooler : MonoBehaviour
         carMover.AddCarToQueue(car);
     }
 
+    void SpawnCoinsAtLane(int lane, float zPos, bool shifted = false)
+    {
+        Vector3 pos = new Vector3(lane * 5.9f - 34.2f, 92.5f, zPos);
+        if (shifted)
+        {
+            pos += Vector3.forward * 20f;
+        }
+        float yRot = 0;
+        for(int i = 0; i < 10; i++)
+        {
+            easyObjectPool.GetObjectFromPool("coin", pos, Quaternion.Euler(0f,yRot,0f));
+            yRot += 5f;
+            pos += Vector3.forward * 5f;
+        }
+    }
+
     private void FixedUpdate()
     {
         distanceCovered = transform.position.z - startingZPos;
@@ -57,6 +73,16 @@ public class CarCoinPooler : MonoBehaviour
                 //spawn 1 car, pick lane & car
                 int lane = Random.Range(0, 3);
                 SpawnCarAtLane(lane, startingZPos + nextCarPos);
+                int coinLane = Random.Range(0, 2);
+                if(coinLane == 0)
+                {
+                    coinLane = (lane + 2) % 3;
+                }
+                else
+                {
+                    coinLane = (lane + 1) % 3;
+                }
+                SpawnCoinsAtLane(coinLane, startingZPos + nextCarPos);
                 nextCarPos += nextCarPosArr[level];
             }
             else if(currSpawnType > spawnType[level,0] && currSpawnType <= spawnType[level,0] + spawnType[level, 1])
@@ -65,6 +91,7 @@ public class CarCoinPooler : MonoBehaviour
                 int lane = Random.Range(0,3);
                 SpawnCarAtLane((lane + 1) % 3, startingZPos + nextCarPos);
                 SpawnCarAtLane((lane + 2) % 3, startingZPos + nextCarPos);
+                SpawnCoinsAtLane(lane, startingZPos + nextCarPos);
                 nextCarPos += nextCarPosArr[level];
             }
             else
@@ -74,6 +101,20 @@ public class CarCoinPooler : MonoBehaviour
                 SpawnCarAtLane(lane, startingZPos + nextCarPos, true);
                 SpawnCarAtLane((lane + 1) % 3, startingZPos + nextCarPos);
                 SpawnCarAtLane((lane + 2) % 3, startingZPos + nextCarPos);
+                //// No need to spawn when there are three cars
+                //if(lane != 1)
+                //{
+                //    SpawnCoinsAtLane(1, startingZPos + nextCarPos, true);
+                //}
+                //else
+                //{
+                //    int coinLane = Random.Range(0, 2);
+                //    if(coinLane == 1)
+                //    {
+                //        coinLane = 2;
+                //    }
+                //    SpawnCoinsAtLane(coinLane, startingZPos + nextCarPos, true);
+                //}
                 nextCarPos += nextCarPosArr[level];
             }
             //easyObjectPool.GetObjectFromPool("car_" + index,)

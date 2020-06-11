@@ -9404,6 +9404,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bike
       objectReference: {fileID: 0}
+    - target: {fileID: 5099432826131545277, guid: faf6cb97320d97746b7698cdce3f5a2b,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.80444
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099432826131545277, guid: faf6cb97320d97746b7698cdce3f5a2b,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.79722
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099432826131545277, guid: faf6cb97320d97746b7698cdce3f5a2b,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.109999895
+      objectReference: {fileID: 0}
     - target: {fileID: 5099432826131545279, guid: faf6cb97320d97746b7698cdce3f5a2b,
         type: 3}
       propertyPath: forceZ
