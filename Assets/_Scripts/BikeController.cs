@@ -22,6 +22,9 @@ public class BikeController : MonoBehaviour
     [HideInInspector]
     public bool leftButtonPressed = false, rightButtonPressed = false;
 
+    private float constant = 0;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +56,21 @@ public class BikeController : MonoBehaviour
         //Velocities
         if (speedZ < maxSpeedZ)
         {
-            speedZ += forceZ * Time.deltaTime;
+            //speedZ += forceZ * Time.deltaTime;
+            
+            if(speedZ < 35f)
+            {
+                speedZ = forceZ * Time.deltaTime * Time.time * 40;
+            }
+            else
+            {
+                if(constant == 0)
+                {
+                    constant = -1.7346f - 0.05f * (-forceZ * Time.deltaTime * Time.time);
+                    Debug.LogWarning(2 * maxSpeedZ * (1f / (1f + Mathf.Exp(0.05f * (-forceZ * Time.deltaTime * Time.time) + constant)) - 0.5f));
+                }
+                speedZ = 2 * maxSpeedZ * (1f / (1f + Mathf.Exp(0.05f * (-forceZ * Time.deltaTime * Time.time) + constant)) - 0.5f);
+            }
         }
 
         // X speed
