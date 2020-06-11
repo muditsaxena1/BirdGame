@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MarchingBytes;
 
-public class CarPooler : MonoBehaviour
+public class CarCoinPooler : MonoBehaviour
 {
     public Transform carMoverTransform;
     public CarMover carMover;
