@@ -7,21 +7,12 @@ public class CarCoinPooler : MonoBehaviour
 {
     public Transform carMoverTransform;
     public CarMover carMover;
-    public float coinLevelDistance = 300f;
     float spawnAtLeastBefore = 200f;
     int level = 0, maxLevel = 4;
-    float levelDistance = 200f, nextCarPos = 100f, nextCoinPos, coinLevelEnd;
+    float levelDistance = 200f, nextCarPos = 100f;
     float startingZPos, distanceCovered;
     Queue<GameObject> carQ;
     EasyObjectPool easyObjectPool;
-    enum States
-    {
-        Normal,
-        Coins,
-        Boost
-    }
-    States currState;
-
     // <= first == spawn 1
     // > first && <= first + second == spawn 2
     // > first + second == spawn 3
@@ -34,13 +25,10 @@ public class CarCoinPooler : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("##########CarCoinPooler here bitch");
+        Debug.Log("##########CarPooler here bitch");
         startingZPos = transform.position.z;
         carQ = new Queue<GameObject>();
         easyObjectPool = EasyObjectPool.instance;
-        currState = States.Normal;
-        nextCoinPos = Random.Range(1000, 1200);
-        coinLevelEnd = nextCoinPos + coinLevelDistance;
     }
 
     void SpawnCarAtLane(int lane, float zPos, bool shifted = false)
@@ -75,27 +63,7 @@ public class CarCoinPooler : MonoBehaviour
     private void FixedUpdate()
     {
         distanceCovered = transform.position.z - startingZPos;
-        if(nextCarPos > nextCoinPos)
-        {
-            nextCoinPos = nextCarPos;
-            currState = States.Coins;
-        }
-        if(currState == States.Coins)
-        {
-            for(int i = 0; i < 3; i++)
-            {
-                SpawnCoinsAtLane(i, startingZPos + nextCoinPos);
-            }
-            nextCoinPos += 100f;
-            if(nextCoinPos > coinLevelEnd)
-            {
-                nextCarPos = nextCoinPos;
-                nextCoinPos += Random.Range(1000, 1200);
-                coinLevelEnd = nextCoinPos + coinLevelDistance;
-                currState = States.Normal;
-            }
-        }
-        if(currState == States.Normal && distanceCovered + spawnAtLeastBefore > nextCarPos)
+        if(distanceCovered + spawnAtLeastBefore > nextCarPos)
         {
             //spawn Car at startingZPos + nextCarPos
             int currSpawnType = Random.Range(1, 101);
@@ -133,6 +101,20 @@ public class CarCoinPooler : MonoBehaviour
                 SpawnCarAtLane(lane, startingZPos + nextCarPos, true);
                 SpawnCarAtLane((lane + 1) % 3, startingZPos + nextCarPos);
                 SpawnCarAtLane((lane + 2) % 3, startingZPos + nextCarPos);
+                //// No need to spawn when there are three cars
+                //if(lane != 1)
+                //{
+                //    SpawnCoinsAtLane(1, startingZPos + nextCarPos, true);
+                //}
+                //else
+                //{
+                //    int coinLane = Random.Range(0, 2);
+                //    if(coinLane == 1)
+                //    {
+                //        coinLane = 2;
+                //    }
+                //    SpawnCoinsAtLane(coinLane, startingZPos + nextCarPos, true);
+                //}
                 nextCarPos += nextCarPosArr[level];
             }
             //easyObjectPool.GetObjectFromPool("car_" + index,)
