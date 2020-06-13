@@ -10,10 +10,12 @@ public class CarCoinPooler : MonoBehaviour
     public float coinLevelDistance = 300f;
     float spawnAtLeastBefore = 200f;
     int level = 0, maxLevel = 4;
-    float levelDistance = 200f, nextCarPos = 100f, nextCoinPos, coinLevelEnd;
+    float levelDistance = 200f, nextCarPos = 100f, nextCoinPos, coinLevelEnd, nextMagnetSpawn;
     float startingZPos, distanceCovered;
-    Queue<GameObject> carQ;
+    Queue<GameObject> coinQ;
     EasyObjectPool easyObjectPool;
+    public GameObject magnetPrefab;
+
     enum States
     {
         Normal,
@@ -36,7 +38,7 @@ public class CarCoinPooler : MonoBehaviour
     {
         Debug.Log("##########CarCoinPooler here bitch");
         startingZPos = transform.position.z;
-        carQ = new Queue<GameObject>();
+        coinQ = new Queue<GameObject>();
         easyObjectPool = EasyObjectPool.instance;
         currState = States.Normal;
         nextCoinPos = Random.Range(1000, 1200);
@@ -66,7 +68,7 @@ public class CarCoinPooler : MonoBehaviour
         float yRot = 0;
         for (int i = 0; i < 10; i++)
         {
-            easyObjectPool.GetObjectFromPool("coin", pos, Quaternion.Euler(0f, yRot, 0f));
+            coinQ.Enqueue(easyObjectPool.GetObjectFromPool("coin", pos, Quaternion.Euler(0f, yRot, 0f)));
             yRot += 5f;
             pos += Vector3.forward * 5f;
         }
@@ -145,6 +147,10 @@ public class CarCoinPooler : MonoBehaviour
                 level++;
             }
         }
+        //if(coinQ.Peek().transform.position.z + 10f < transform.position.z)
+        //{
+        //    easyObjectPool.ReturnObjectToPool(coinQ.Dequeue());
+        //}
     }
 
 
