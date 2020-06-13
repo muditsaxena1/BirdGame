@@ -60,7 +60,7 @@ public class CarCoinPooler : MonoBehaviour
 
     void SpawnCoinsAtLane(int lane, float zPos, bool shifted = false)
     {
-        Vector3 pos = new Vector3(lane * 5.9f - 34.2f, 92.5f, zPos);
+        Vector3 pos = new Vector3(lane * 5.9f - 34.2f, 92f, zPos);
         if (shifted)
         {
             pos += Vector3.forward * 20f;
@@ -147,10 +147,10 @@ public class CarCoinPooler : MonoBehaviour
                 level++;
             }
         }
-        //if(coinQ.Peek().transform.position.z + 10f < transform.position.z)
-        //{
-        //    easyObjectPool.ReturnObjectToPool(coinQ.Dequeue());
-        //}
+        if (coinQ.Count > 0 && coinQ.Peek().transform.position.z + 10f < transform.position.z)
+        {
+            easyObjectPool.ReturnObjectToPool(coinQ.Dequeue());
+        }
     }
 
 
