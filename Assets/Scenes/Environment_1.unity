@@ -1134,6 +1134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carMoverTransform: {fileID: 526871092}
   carMover: {fileID: 526871093}
+  coinLevelDistance: 300
 --- !u!4 &324769349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4493928384170443251, guid: e72e8dbdcd0eb624d98bee5849059bf7,
@@ -7684,9 +7685,9 @@ MonoBehaviour:
     poolSize: 4
     fixedSize: 0
   - poolName: coin
-    prefab: {fileID: 1364291497951836627, guid: 4e288d675883d33418e0d9ef2152e424,
+    prefab: {fileID: 2169335467884534044, guid: 672b016e4bcc3b74cb744e9259e2d12a,
       type: 3}
-    poolSize: 20
+    poolSize: 60
     fixedSize: 0
 --- !u!4 &1724119960
 Transform:
